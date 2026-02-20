@@ -1,44 +1,47 @@
 "use client";
 
-import React, { createElement } from "react";
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
-import { Layout, Menu, } from "antd";
+import React from "react";
+import { Layout, Menu } from "antd";
+import { sidebarItems } from "@/src/site";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-  (icon, index) => ({
-    key: String(index + 1),
-    icon:createElement(icon),
-    label: `nav ${index + 1}`,
-  })
-);
-
-export default function MainLayout({ children }: { children: React.ReactNode }) {
- 
+export default function MainLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <Layout>
+    <Layout style={{ height: "100vh" }}>
       <Sider breakpoint="lg" collapsedWidth="0">
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]} items={items} />
+      <h1
+        style={{
+          fontWeight: "bold",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "60px",
+          border: "1px solid",
+          borderRadius:"10px"
+        }}
+      >
+        PH University
+      </h1>
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          items={sidebarItems}
+        />
       </Sider>
 
       <Layout>
-        <Header style={{ padding: 0, }} />
-
+        <Header />
         <Content style={{ margin: "24px 16px 0" }}>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-
-            }}
-          >
-            {children}
-          </div>
+          <div style={{ padding: 24 }}>{children}</div>
         </Content>
-
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()}
+          PH University ©{new Date().getFullYear()}
         </Footer>
       </Layout>
     </Layout>
