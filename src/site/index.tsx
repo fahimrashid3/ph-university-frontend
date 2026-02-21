@@ -9,7 +9,7 @@ import {
   DashboardOutlined,
 } from "@ant-design/icons";
 
-export const sidebarItems = [
+export const sidebarAdminItems = [
   {
     key: "dashboard",
     icon: <DashboardOutlined />,

@@ -1,39 +1,20 @@
 "use client";
 
-import React from "react";
-import { Layout, Menu } from "antd";
-import { sidebarItems } from "@/src/site";
+import Sidebar from "@/src/compunents/sidebar/Sidebar";
+import { Layout } from "antd";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 
 export default function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const role = "admin";
+
   return (
     <Layout style={{ height: "100vh" }}>
-      <Sider breakpoint="lg" collapsedWidth="0">
-      <h1
-        style={{
-          fontWeight: "bold",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "60px",
-          border: "1px solid",
-          borderRadius:"10px"
-        }}
-      >
-        PH University
-      </h1>
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={sidebarItems}
-        />
-      </Sider>
+      <Sidebar role={role} />
 
       <Layout>
         <Header />
