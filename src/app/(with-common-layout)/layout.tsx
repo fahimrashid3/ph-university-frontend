@@ -10,12 +10,11 @@ export default function MainLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const role = "admin";
+  const role = "faculty";
 
   return (
     <Layout style={{ height: "100vh" }}>
       <Sidebar role={role} />
-
       <Layout>
         <Header />
         <Content style={{ margin: "24px 16px 0" }}>
